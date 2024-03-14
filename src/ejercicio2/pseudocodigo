@@ -1,0 +1,55 @@
+Interfaz Traduccion {
+    introducirLugar()
+    introducirHorario()
+    inicioRespuesta()
+    finRespuesta()
+}
+
+Clase TraduccionEspaniol implementa Traduccion {
+    introducirLugar() {
+        Mostrar "Bienvenido a nuestro lugar turístico."
+    }
+    introducirHorario() {
+        Mostrar "Nuestro horario es de 9:00 am a 6:00 pm."
+    }
+    inicioRespuesta() {
+        Mostrar "Por favor, espere un momento..."
+    }
+    finRespuesta() {
+        Mostrar "¡Gracias por su visita!"
+    }
+}
+
+Clase TraduccionIngles implementa Traduccion {
+    introducirLugar() {
+        Mostrar "Welcome to our tourist spot."
+    }
+    introducirHorario() {
+        Mostrar "Our operating hours are from 9:00 am to 6:00 pm."
+    }
+    inicioRespuesta() {
+        Mostrar "Please wait a moment..."
+    }
+    finRespuesta() {
+        Mostrar "Thank you for your visit!"
+    }
+}
+
+Clase GuiaTuristica {
+    Funcion principal() {
+        Mostrar "Elija el idioma deseado (1: Español, 2: Inglés): "
+        Leer opcion
+        Si opcion == 1
+            Crear instancia de TraduccionEspaniol
+        Sino si opcion == 2
+            Crear instancia de TraduccionIngles
+        Sino
+            Mostrar "Opción no válida, seleccionando Español por defecto."
+            Crear instancia de TraduccionEspaniol
+        Fin Si
+        Llamar a inicioRespuesta()
+        Llamar a introducirLugar()
+        Llamar a introducirHorario()
+        Llamar a finRespuesta()
+    }
+}
