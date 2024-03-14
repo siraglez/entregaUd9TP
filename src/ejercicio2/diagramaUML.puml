@@ -1,0 +1,32 @@
+@startuml
+
+interface Traduccion {
+    + introducirLugar()
+    + introducirHorario()
+    + inicioRespuesta()
+    + finRespuesta()
+}
+
+class TraduccionEspaniol {
+    + introducirLugar()
+    + introducirHorario()
+    + inicioRespuesta()
+    + finRespuesta()
+}
+
+class TraduccionIngles {
+    + introducirLugar()
+    + introducirHorario()
+    + inicioRespuesta()
+    + finRespuesta()
+}
+
+class GuiaTuristica {
+    + principal()
+}
+
+Traduccion <|.. TraduccionEspaniol
+Traduccion <|.. TraduccionIngles
+GuiaTuristica --> Traduccion
+
+@enduml
