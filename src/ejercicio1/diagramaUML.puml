@@ -1,0 +1,61 @@
+@startuml
+class FechaReserva {
+    - fechaUltimaReserva: LocalDate
+    + FechaReserva(fechaUltimaReserva: LocalDate)
+    + getFechaUltimaReserva(): LocalDate
+    + setFechaUltimaReserva(fechaUltimaReserva: LocalDate)
+}
+
+interface Mesa {
+    + calcularPrecioReserva(): double
+    + mostrar(): String
+}
+
+abstract class MesaBase {
+    - numero: int
+    - ubicacion: String
+    - fechaUltimaReserva: FechaReserva
+    + MesaBase(numero: int, ubicacion: String, fechaUltimaReserva: FechaReserva)
+    + mostrar(): String
+}
+
+class MesaIndividual {
+    - vistaPreferida: String
+    + MesaIndividual(numero: int, ubicacion: String, fechaUltimaReserva: FechaReserva, vistaPreferida: String)
+    + calcularPrecioReserva(): double
+    + mostrar(): String
+}
+
+class MesaDoble {
+    - vistaPreferida: String
+    + MesaDoble(numero: int, ubicacion: String, fechaUltimaReserva: FechaReserva, vistaPreferida: String)
+    + calcularPrecioReserva(): double
+    + mostrar(): String
+}
+
+class MesaGrupo {
+    - cantidadEnchufes: int
+    + MesaGrupo(numero: int, ubicacion: String, fechaUltimaReserva: FechaReserva, cantidadEnchufes: int)
+    + calcularPrecioReserva(): double
+    + mostrar(): String
+}
+
+class TablaReservas {
+    - mesas: List<Mesa>
+    + TablaReservas()
+    + agregarMesa(mesa: Mesa): void
+    + mostrarMesas(): void
+}
+
+class ReservaCafeteria {
+    + main(args: String[]): void
+}
+
+FechaReserva *-- MesaBase
+Mesa <|-- MesaBase
+MesaIndividual --|> MesaBase
+MesaDoble --|> MesaBase
+MesaGrupo --|> MesaBase
+TablaReservas o-- Mesa
+ReservaCafeteria --> TablaReservas
+@enduml
