@@ -105,3 +105,97 @@ Clase ReservaCafeteria
             Imprimir "Estas son las mesas que ofrecemos para reservar: "
             Llamar al método mostrarMesas() de tablaReservas
 ```
+
+
+# Ejercicio 2: Guía Turística Multilingüe
+
+Este proyecto implementa una guía turística multilingüe en Java.
+
+## 1. Descripción del Código
+
+### 1.1. Interfaz `Traduccion`
+
+La interfaz `Traduccion` define un contrato para las clases que deseen actuar como traducciones en la guía turística. Contiene cuatro métodos abstractos:
+
+- `introducirLugar()`: Muestra un mensaje de bienvenida al lugar turístico.
+- `introducirHorario()`: Muestra el horario de operación del lugar turístico.
+- `inicioRespuesta()`: Muestra un mensaje de inicio de respuesta.
+- `finRespuesta()`: Muestra un mensaje de despedida.
+
+### 1.2. Implementaciones de la Interfaz
+
+Se proporcionan dos implementaciones de la interfaz `Traduccion`:
+
+- `TraduccionEspaniol`: Implementa los métodos abstractos para mostrar mensajes en español.
+- `TraduccionIngles`: Implementa los métodos abstractos para mostrar mensajes en inglés.
+
+### 1.3. Clase Principal `GuiaTuristica`
+
+La clase `GuiaTuristica` es la clase principal del programa. Contiene la lógica para que el usuario elija el idioma deseado y muestra la información sobre el lugar turístico en el idioma seleccionado.
+
+1. Se importa la clase `Scanner` para tomar la entrada del usuario.
+2. Se solicita al usuario que elija el idioma deseado (español o inglés) ingresando un número correspondiente.
+3. Se instancia un objeto de la clase `TraduccionEspaniol` o `TraduccionIngles` según la opción seleccionada.
+4. Se llaman a los métodos de la interfaz `Traduccion` en la instancia correspondiente para mostrar la información del lugar turístico en el idioma seleccionado.
+5. Se cierra el objeto `Scanner`.
+
+# Pseudocódigo
+
+```java
+Interfaz Traduccion {
+    introducirLugar()
+    introducirHorario()
+    inicioRespuesta()
+    finRespuesta()
+}
+
+Clase TraduccionEspaniol implementa Traduccion {
+    introducirLugar() {
+        Mostrar "Bienvenido a nuestro lugar turístico."
+    }
+    introducirHorario() {
+        Mostrar "Nuestro horario es de 9:00 am a 6:00 pm."
+    }
+    inicioRespuesta() {
+        Mostrar "Por favor, espere un momento..."
+    }
+    finRespuesta() {
+        Mostrar "¡Gracias por su visita!"
+    }
+}
+
+Clase TraduccionIngles implementa Traduccion {
+    introducirLugar() {
+        Mostrar "Welcome to our tourist spot."
+    }
+    introducirHorario() {
+        Mostrar "Our operating hours are from 9:00 am to 6:00 pm."
+    }
+    inicioRespuesta() {
+        Mostrar "Please wait a moment..."
+    }
+    finRespuesta() {
+        Mostrar "Thank you for your visit!"
+    }
+}
+
+Clase GuiaTuristica {
+    Funcion principal() {
+        Mostrar "Elija el idioma deseado (1: Español, 2: Inglés): "
+        Leer opcion
+        Si opcion == 1
+            Crear instancia de TraduccionEspaniol
+        Sino si opcion == 2
+            Crear instancia de TraduccionIngles
+        Sino
+            Mostrar "Opción no válida, seleccionando Español por defecto."
+            Crear instancia de TraduccionEspaniol
+        Fin Si
+        Llamar a inicioRespuesta()
+        Llamar a introducirLugar()
+        Llamar a introducirHorario()
+        Llamar a finRespuesta()
+    }
+}
+
+```
